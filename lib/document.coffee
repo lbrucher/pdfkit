@@ -10,7 +10,7 @@ PDFReference = require './reference'
 PDFPage = require './page'
 
 class PDFDocument
-    constructor: (@options = {}) ->
+    constructor: (@options = {}, doNotCreateFirstPage) ->
         # PDF version
         @version = 1.3
         
@@ -45,7 +45,7 @@ class PDFDocument
             delete @options.info
         
         # Add the first page
-        @addPage()
+        @addPage() unless doNotCreateFirstPage
     
     mixin = (name) =>
         methods = require './mixins/' + name
