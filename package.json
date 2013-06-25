@@ -25,6 +25,7 @@
       "coffee-script": ">=1.0.1"
   },
   "scripts": {
+      "postinstall": "coffee -o js -c lib/ && cp -r lib/font/data js/font/data",
       "prepublish": "coffee -o js -c lib/ && cp -r lib/font/data js/font/data",
       "postpublish": "rm -rf ./js"
   },
